@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB TECH SHOW - Esoft (Com 58 Batch)</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #a29bfe;
+            --accent: #fd79a8;
+            --dark: #2d3436;
+            --light: #f5f6fa;
+            --dark-gray: #636e72;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            padding-top: 80px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+            margin: 0.5rem auto;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            top: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 24px;
+            color: #fff;
+            transition: transform 0.3s ease, color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+            color: #00ffcc;
+            /* Hover color change (optional) */
+        }
+
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            display: inline-block;
+            margin: 0 1rem;
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        .nav-links li::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+
+        .nav-links li:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Navigation */
+        .mobile-menu-toggle {
+            display: none;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 1rem;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .hero .btn {
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Highlights Section */
+        .highlights {
+            background-color: white;
+            padding: 5rem 0;
+        }
+
+        .highlight-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .highlight-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .highlight-img {
+            height: 200px;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .highlight-content {
+            padding: 1.5rem;
+        }
+
+        .highlight-content h3 {
+            color: var(--primary);
+        }
+
+        /* Schedule Section */
+        .schedule {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            padding: 5rem 0;
+            color: white;
+        }
+
+        .schedule .section-title {
+            color: white;
+        }
+
+        .schedule-wrapper {
+            overflow-x: auto;
+            margin-top: 2rem;
+        }
+
+        .schedule-table {
+            width: 100%;
+            min-width: 800px;
+            border-collapse: collapse;
+            background-color: white;
+            color: var(--dark);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .schedule-table th,
+        .schedule-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .schedule-table th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: bold;
+        }
+
+        .schedule-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .schedule-table tr:hover {
+            background-color: rgba(108, 92, 231, 0.1);
+        }
+
+        /* Tickets Section */
+        .tickets {
+            padding: 5rem 0;
+            background-color: white;
+        }
+
+        .ticket-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .ticket-card {
+            background-color: var(--light);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ticket-card.popular {
+            border: 3px solid var(--accent);
+            transform: scale(1.05);
+        }
+
+        .ticket-card.popular::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: 15px;
+            right: -35px;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.3rem 3rem;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .ticket-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .ticket-card.popular:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .ticket-card h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin: 1rem 0;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--dark-gray);
+        }
+
+        .ticket-features {
+            list-style: none;
+            margin: 1.5rem 0 2rem;
+        }
+
+        .ticket-features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+        }
+
+        .ticket-features li:last-child {
+            border-bottom: none;
+        }
+
+        .ticket-features li::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 5rem 0;
+            background-color: var(--light);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            height: 200px;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+            overflow: hidden;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item:nth-child(odd) {
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background-color: white;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info i {
+            margin-right: 1rem;
+            color: var(--primary);
+            width: 20px;
+        }
+
+        .map-placeholder {
+            height: 200px;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1rem;
+            border-radius: 10px;
+            color: white;
+        }
+
+        .map-container {
+    margin-top: 1rem;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+        .contact-form h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--dark);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* About Us Section */
+        .about-us {
+            padding: 5rem 0;
+            background-color: var(--light);
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .team-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        /* Add this to your existing CSS */
+    .team-member-img {
+        transition: all 0.5s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .team-member-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    .team-member:hover .team-member-img {
+        transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .team-member:hover .team-member-img img {
+        transform: scale(1.1);
+    }
+
+    /* Fade-in animation for team images */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    .team-member-img img {
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    /* Optional: Add a subtle border animation */
+    .team-member-img::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: 3px solid transparent;
+        border-radius: 50%;
+        transition: all 0.5s ease;
+        z-index: 1;
+    }
+
+    .team-member:hover .team-member-img::before {
+        border-color: var(--accent);
+        transform: scale(0.95);
+    }
+
+        .team-member h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .team-member p {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        footer h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .social-links li {
+            margin: 0 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: block;
+            padding: 0.5rem;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 99;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .back-to-top:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .mobile-menu-toggle:checked+.mobile-menu-btn+.nav-links {
+                display: flex;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--primary);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .ticket-card {
+                padding: 1.5rem;
+            }
+
+            .team-member-img {
+                width: 120px;
+                height: 120px;
+                font-size: 2.5rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .price {
+                font-size: 2.5rem;
+            }
+
+            .team-member-img {
+                width: 100px;
+                height: 100px;
+                font-size: 2rem;
+            }
+
+            .container {
+                width: 95%;
+            }
+        }
+
+        /* Smooth scrolling for all browsers */
+        @media (prefers-reduced-motion: no-preference) {
+            html {
+                scroll-behavior: smooth;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">WEB TECH SHOW</a>
+                <input type="checkbox" id="mobileMenuToggle" class="mobile-menu-toggle">
+                <label for="mobileMenuToggle" class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </label>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#highlights">Highlights</a></li>
+                    <li><a href="#schedule">Schedule</a></li>
+                    <li><a href="#tickets">Tickets</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#about-us">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="container">
+                <h1 class="typewriter">WEB TECH SHOW 2025</h1>
+                <p>The ultimate web technology conference featuring the latest trends, tools, and techniques in web
+                    development and design.</p>
+                <p><strong>November 15-17, 2025 | Esoft Metro Campus - Kurunegala</strong></p>
+                <a href="#tickets" class="btn">Get Your Tickets</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights Section -->
+    <section class="highlights" id="highlights">
+        <div class="container">
+            <h2 class="section-title">Event Highlights</h2>
+            <div class="highlight-container">
+                <div class="highlight-card">
+                    <div class="highlight-img"><i class="fas fa-microphone-alt fa-3x"></i></div>
+                    <div class="highlight-content">
+                        <h3>Inspiring Keynotes</h3>
+                        <p>Hear from industry leaders about the future of web technologies and their vision for the next
+                            decade of digital innovation.</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-img"><i class="fas fa-laptop-code fa-3x"></i></div>
+                    <div class="highlight-content">
+                        <h3>Hands-on Workshops</h3>
+                        <p>Participate in interactive workshops led by experts to sharpen your skills in modern web
+                            development frameworks and tools.</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-img"><i class="fas fa-users fa-3x"></i></div>
+                    <div class="highlight-content">
+                        <h3>Networking Events</h3>
+                        <p>Connect with fellow developers, designers, and tech enthusiasts at our exclusive networking
+                            sessions and social events.</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-img"><i class="fas fa-lightbulb fa-3x"></i></div>
+                    <div class="highlight-content">
+                        <h3>Tech Exhibition</h3>
+                        <p>Explore cutting-edge web technologies and tools from leading companies and innovative
+                            startups in our exhibition hall.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section class="schedule" id="schedule">
+        <div class="container">
+            <h2 class="section-title">Event Schedule</h2>
+            <div class="schedule-wrapper">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Day 1 (Nov 15)</th>
+                            <th>Day 2 (Nov 16)</th>
+                            <th>Day 3 (Nov 17)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>9:00 - 10:30</strong></td>
+                            <td>Registration & Welcome Coffee</td>
+                            <td>Morning Workshops</td>
+                            <td>Morning Workshops</td>
+                        </tr>
+                        <tr>
+                            <td><strong>10:30 - 12:00</strong></td>
+                            <td>Opening Keynote</td>
+                            <td>Frontend Frameworks Panel</td>
+                            <td>Web Performance Optimization</td>
+                        </tr>
+                        <tr>
+                            <td><strong>12:00 - 13:30</strong></td>
+                            <td>Lunch & Networking</td>
+                            <td>Lunch & Exhibition</td>
+                            <td>Lunch & Networking</td>
+                        </tr>
+                        <tr>
+                            <td><strong>13:30 - 15:00</strong></td>
+                            <td>CSS & Design Trends</td>
+                            <td>JavaScript Deep Dive</td>
+                            <td>Closing Keynote</td>
+                        </tr>
+                        <tr>
+                            <td><strong>15:00 - 16:30</strong></td>
+                            <td>Web Accessibility Workshop</td>
+                            <td>API Development Sessions</td>
+                            <td>Awards Ceremony</td>
+                        </tr>
+                        <tr>
+                            <td><strong>19:00 - 22:00</strong></td>
+                            <td>Welcome Party</td>
+                            <td>Networking Dinner</td>
+                            <td>Farewell Celebration</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tickets Section -->
+    <section class="tickets" id="tickets">
+        <div class="container">
+            <h2 class="section-title">Tickets</h2>
+            <div class="ticket-cards">
+                <!-- Basic Ticket -->
+                <div class="ticket-card">
+                    <h3>Basic Ticket</h3>
+                    <p class="price">LKR.500 <span>/ per person</span></p>
+                    <ul class="ticket-features">
+                        <li>Access to all sessions</li>
+                        <li>Free snacks</li>
+                        <li>Event materials</li>
+                        <li>Certificate of attendance</li>
+                    </ul>
+                    <a href="#contact" class="btn">Buy Now</a>
+                </div>
+                <!-- Standard Ticket -->
+                <div class="ticket-card popular">
+                    <h3>Standard Ticket</h3>
+                    <p class="price">Free</p>
+                    <ul class="ticket-features">
+                        <li>Access to all sessions</li>
+                        <li>Free snacks & lunch</li>
+                        <li>Event materials</li>
+                        <li>Priority seating</li>
+                        <li>Workshop materials</li>
+                    </ul>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfljYzbphNUaxkFXw4c323aXchw5VBo8wGoyiKoXg-Ipdwt1g/viewform?usp=dialog" class="btn">Buy Now</a>
+                </div>
+                <!-- VIP Ticket -->
+                <div class="ticket-card">
+                    <h3>VIP Ticket</h3>
+                    <p class="price">LKR.1000 <span>/ per person</span></p>
+                    <ul class="ticket-features">
+                        <li>Access to all sessions</li>
+                        <li>Free snacks, lunch & dinner</li>
+                        <li>Event materials</li>
+                        <li>VIP lounge access</li>
+                        <li>Meet & greet with speakers</li>
+                        <li>Exclusive networking events</li>
+                    </ul>
+                    <a href="#contact" class="btn">Buy Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Event Gallery</h2>
+            <p class="about-content">Take a look at moments from our previous events</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div>
+                        <img src="https://miro.medium.com/v2/resize:fit:1200/1*_11ZHkhlr18iQdpzuj-EYA.jpeg" alt="" width="300" height="auto">
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div>
+                        <img src="https://www.adaquest.com/wp-content/uploads/2021/05/teams-1200.png" alt="" width="350" height="auto">
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div>
+                        <img src="https://www.showtownblackpool.co.uk/cms/images/showtown-website-pages/visitor-experience/_1600x900_crop_center-center_82_line/WEBCasson-Mann_Showtown_©HuftonCrow_024.jpg" alt="" width="400" height="auto">
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div>
+                        <img src="https://esoft.lk/wp-content/uploads/2023/12/Kurunagala-5.jpg" alt="" width="380" height="auto">
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div>
+                        <img src="https://www.xessglobal.com/image/portfolio/Xess-Events.jpg" alt="" width="280" height="auto">
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div>
+                        <img src="https://www.xessglobal.com/image/portfolio/AUCWEB-02.jpg" alt="" width="330" height="auto">
+                        <p style="margin-top: 10px;">Memories</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+<!-- Contact Section -->
+<section class="contact" id="contact">
+    <div class="container">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <p><i class="fas fa-map-marker-alt"></i> ESOFT Metro Campus (Degree Division), Kurunegala, Sri Lanka</p>
+                <p><i class="fas fa-phone"></i> +94 74 042 2969</p>
+                <p><i class="fas fa-envelope"></i> info@webtechshow.lk</p>
+
+                <h3 style="margin-top: 2rem;">Event Hours</h3>
+                <p><i class="fas fa-calendar-alt"></i> November 15-17, 2025</p>
+                <p><i class="fas fa-clock"></i> 9:00 AM - 10:00 PM Daily</p>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3954.144711193698!2d80.3542517!3d7.4820182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae33b001ebf38f1%3A0xdb41d77f4d2a3023!2sESOFT%20Metro%20Campus%20(Degree%20Division)%20Kurunegala!5e0!3m2!1sen!2slk!4v1717150000000!5m2!1sen!2slk" 
+                        width="100%" 
+                        height="300" 
+                        style="border:0; border-radius: 10px;" 
+                        allowfullscreen="" 
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>Send Us a Message</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- About Us Section -->
+    <section class="about-us" id="about-us">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-content">
+                <p>WEB TECH SHOW is the premier web technology conference in Sri Lanka, bringing together developers,
+                    designers, and tech enthusiasts from across the country and beyond. Our mission is to educate,
+                    inspire, and connect the web community through high-quality content and networking opportunities.
+                </p>
+                <p>Founded in 2015, we've grown from a small local meetup to one of the most anticipated tech events in
+                    the region, featuring world-class speakers and cutting-edge content.</p>
+            </div>
+            <h2 class="section-title">Our Team</h2>
+            <div class="team-container">
+                <div class="team-member">
+                    <div class="team-member-img"><img src="sithija.JPG" alt="" width="150" height="auto"></div>
+                    <h3>Sithija Vidusara</h3>
+                </div>
+                <div class="team-member">
+                    <div class="team-member-img"><img src="kalhara.png" alt="" width="150" height="auto"></div>
+                    <h3>Kalhara Liyanage</h3>
+                </div>
+                <div class="team-member">
+                    <div class="team-member-img"><img src="bashitha.png" alt="" width="150" height="auto"></div>
+                    <h3>Bashitha Chandeepa</h3>
+                </div>
+                <div class="team-member">
+                    <div class="team-member-img"><img src="mihiranga.png" alt="" width="150" height="auto">
+                    </div>
+                    <h3>Geethanjana Mihiranga</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3>WEB TECH SHOW 2025</h3>
+            <p>The Ultimate Web Technology Event</p>
+            <ul class="social-links">
+                <li><a href="https://www.facebook.com/share/1HvQYerXSW/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="https://www.youtube.com/redirect?event=channel_description&redir_token=QUFFLUhqa0R5T29JN08tc3kwSFFCYU5mVTNwNEVKYTdiQXxBQ3Jtc0trV1dXUXlwNHl5MG9oNmVjZjBKYWZmXzdUYV83Mk9MRU5nLXFMNkhZMFRwREZJck5kWWNTVm56b0dWZE1UcDBSZHlYZEF1Q01jdHFqQXhMTkZ2bTlZOE8wczFUcENnQ1RrZlFYS25RQUxUUGd2SGFGcw&q=https%3A%2F%2Fwww.instagram.com%2Fesoftmetrocampus%2F"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://www.youtube.com/redirect?event=channel_description&redir_token=QUFFLUhqbFB5Vy1EYWp3VnZVaWJxSW5sUFdWdmJLdDhNd3xBQ3Jtc0trdXBINjhmSlFjbndCbmFJWklfdXlVbkhvc1AxT3JzTkd5T01WNmtFa0dCVjVhN2x3US1yaC1kWFoyLXZUYzQzLWsxZjBwZXAzNWVWMnBpdm5sbDhzM1pWTHB5QW1mOFYtaXhhUEVMZnNETUQ1VFBXcw&q=https%3A%2F%2Fwww.linkedin.com%2Fschool%2Fesoftmetrocampus"><i class="fab fa-linkedin-in"></i></a></li>
+                <li><a href="https://www.youtube.com/@ESOFTSriLanka"><i class="fab fa-youtube"></i></a></li>
+            </ul>
+            <p>&copy; 2025 WEB TECH SHOW. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</body>
+
+</html>
